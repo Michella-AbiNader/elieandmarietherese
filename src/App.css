@@ -182,3 +182,26 @@
     border-right-color: var(--border);
   }
 }
+/* src/App.css */
+.invitation {
+  width: 100vw;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* padding: 20px; */
+}
+.couple-photo {
+  width: 250px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+.invitation {
+  /* opacity: 0; */
+  transition: opacity 1s ease;
+}
+.invitation.show {
+  opacity: 1;
+}
