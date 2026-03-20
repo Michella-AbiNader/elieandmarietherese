@@ -11,7 +11,7 @@ function App() {
       alert("Data sent successfully!");
     } catch (error) {
       console.error(error);
-      alert("Error sending data");
+      alert("Error sending data!");
     }
   };
 
