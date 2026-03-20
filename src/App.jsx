@@ -5,7 +5,7 @@ function App() {
   const testWrite = async () => {
     try {
       await addDoc(collection(db, "test"), {
-        message: "Hello from React 👋",
+        message: "Hello from React!",
         createdAt: new Date()
       });
       alert("Data sent successfully!");
