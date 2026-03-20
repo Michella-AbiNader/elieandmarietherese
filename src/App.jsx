@@ -4,7 +4,7 @@ import { collection, addDoc } from "firebase/firestore";
 function App() {
   const testWrite = async () => {
     try {
-      await addDoc(collection(db, "test"), {
+      await addDoc(collection(db, "test12"), {
         message: "Hello from React!",
         createdAt: new Date()
       });
