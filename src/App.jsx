@@ -1,10 +1,12 @@
 import { useRef, useState, useEffect } from "react";
-import Section1 from "./Sections/Section1";
+import Invitation from "./Sections/Invitation";
 import MusicButton from "./Layout/MusicButton";
 import Envelope from "./Components/Envelope";
 import SwipeContainer from "./Components/SwipeContainer";
-import Section2 from "./Sections/Section2";
-import Section3 from "./Sections/Section3";
+import QuoteDate from "./Sections/QuoteDate";
+import WeddingVenue from "./Sections/WeddingVenue";
+import GiftRegistry from "./Sections/GiftRegistry";
+import RSVP from "./Sections/RSVP";
 
 function App() {
   const audioRef = useRef(null);
@@ -13,9 +15,11 @@ function App() {
   const [isOpened, setIsOpened] = useState(false);
 
   const sections = [
-  <Section1 key="1" />,
-  <Section2 key="2" />,
-    <Section3 key="3" />,
+  <Invitation key="1" />,
+  <QuoteDate key="2" />,
+  <WeddingVenue key="3" />,
+  <GiftRegistry key="4" />,
+  <RSVP key="5" />,
 
 ];
 

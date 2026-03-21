@@ -1,8 +1,8 @@
 import SectionWrapper from "../Layout/SectionWrapper";
 import { invitationConfig } from "../Config";
-import "../Styles/Section3.css";
+import "../Styles/WeddingVenue.css";
 
-export default function Section3() {
+export default function WeddingVenue() {
   const { ceremony, venue } = invitationConfig;
 
   return (

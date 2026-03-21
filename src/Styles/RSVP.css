@@ -1,0 +1,62 @@
+
+.deadline {
+    font-size: 1.2rem;
+    /* margin-bottom: 25px; */
+}
+
+/* Form */
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+}
+
+
+
+/* Radio group */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.radio-group label {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Submit button */
+.submit-btn {
+    padding: 8px 20px;
+    /* smaller */
+    border: 1px solid #f8c8dc;
+    background: transparent;
+    color: #f8c8dc;
+    border-radius: 10px;
+    cursor: pointer;
+    align-self: center;
+    width: fit-content;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #f8c8dc;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    outline: none;
+    backdrop-filter: blur(4px);
+}
+
+/* Placeholder color */
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}

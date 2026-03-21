@@ -1,18 +1,18 @@
 import SectionWrapper from "../Layout/SectionWrapper";
 import { invitationConfig } from "../Config";
-import "../Styles/Section2.css";
+import "../Styles/QuoteDate.css";
 
-export default function Section2() {
+export default function QuoteDate() {
   return (
     <SectionWrapper>
       <div className="content animate">
 
-        <h2 className="title">
+        {/* <h2 className="title">
           دعوة لحضور حفل زفاف
-        </h2>
+        </h2> */}
 
         <p className="invitation-text">
-         {invitationConfig.invitationText}
+         {invitationConfig.quote}
         </p>
 
         <p className="date">
