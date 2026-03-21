@@ -50,6 +50,12 @@ return (
       backgroundPosition: "center",
     }}
   >
+    <audio
+  ref={audioRef}
+  src="/InvitationMusic.mp3"
+  loop
+  preload="auto"
+/>
     {/*FIXED OVERLAY (ALWAYS THERE) */}
     <div className="overlay" />
 
@@ -64,7 +70,7 @@ return (
       toggleMusic={toggleMusic}
     />
 
-    {/* 📩 Envelope */}
+    {/* Envelope */}
     {!isOpened && (
       <Envelope onOpen={() => setIsOpened(true)} />
     )}
