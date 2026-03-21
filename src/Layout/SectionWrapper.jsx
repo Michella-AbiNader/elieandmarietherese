@@ -7,7 +7,7 @@ export default function SectionWrapper({ children }) {
     <div
       className="section"
       style={{
-        backgroundImage: `url(/CoupleBGImage.svg)`,
+        backgroundImage: `url(/CoupleBGImage.jpeg)`,
       }}
     >
       <div className="overlay" />

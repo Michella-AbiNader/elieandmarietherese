@@ -1,17 +1,131 @@
-import "./App.css";
+import { useRef, useState, useEffect } from "react";
 import Section1 from "./Sections/Section1";
 import MusicButton from "./Layout/MusicButton";
+import Envelope from "./Components/Envelope";
+import SwipeContainer from "./Components/SwipeContainer";
+import Section2 from "./Sections/Section2";
 
 function App() {
+  const audioRef = useRef(null);
+
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isOpened, setIsOpened] = useState(false);
+
+  const sections = [
+  <Section1 key="1" />,
+  <Section2 key="2" />,
+];
+
+  // Start music after user opens envelope
+  useEffect(() => {
+    if (isOpened && audioRef.current) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    }
+  }, [isOpened]);
+
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+
+    setIsPlaying(!isPlaying);
+  };
+
   return (
-    <>
-      <Section1 />
-      <MusicButton />
-    </>
+    <div style={{ position: "relative" }}>
+      {/* 🎶 Audio */}
+      <audio ref={audioRef} src="/InvitationMusic.mp3" loop />
+
+      {/* 🎉 ALWAYS visible in background */}
+      <SwipeContainer sections={sections} isEnabled={isOpened} />
+
+      <MusicButton
+        isPlaying={isPlaying}
+        toggleMusic={toggleMusic}
+      />
+
+      {/* 📩 Overlay envelope */}
+      {!isOpened && (
+        <Envelope onOpen={() => setIsOpened(true)} />
+      )}
+    </div>
   );
 }
 
 export default App;
+// import { useRef, useState, useEffect } from "react";
+// import Section1 from "./Sections/Section1";
+// import MusicButton from "./Layout/MusicButton";
+
+// function App() {
+//   const audioRef = useRef(null);
+//   const [isPlaying, setIsPlaying] = useState(false);
+
+//   // Try to autoplay (may be blocked until user interaction)
+//   useEffect(() => {
+//     const playAudio = async () => {
+//       try {
+//         await audioRef.current.play();
+//         setIsPlaying(true);
+//       } catch {
+//         setIsPlaying(false);
+//       }
+//     };
+
+//     playAudio();
+//   }, []);
+
+//   const toggleMusic = () => {
+//     if (!audioRef.current) return;
+
+//     if (isPlaying) {
+//       audioRef.current.pause();
+//     } else {
+//       audioRef.current.play();
+//     }
+
+//     setIsPlaying(!isPlaying);
+//   };
+
+//   return (
+//     <>
+//       {/* Global Audio */}
+//       <audio
+//         ref={audioRef}
+//         src="/InvitationMusic.mp3"
+//         loop
+//       />
+
+//       <Section1 />
+
+//       <MusicButton
+//         isPlaying={isPlaying}
+//         toggleMusic={toggleMusic}
+//       />
+//     </>
+//   );
+// }
+
+// export default App;
+// import "./App.css";
+// import Section1 from "./Sections/Section1";
+// import MusicButton from "./Layout/MusicButton";
+
+// function App() {
+//   return (
+//     <>
+//       <Section1 />
+//       <MusicButton />
+//     </>
+//   );
+// }
+
+// export default App;
 // import { db } from "./firebase";
 // import { collection, addDoc } from "firebase/firestore";
 
@@ -36,127 +150,3 @@ export default App;
 //     </div>
 //   );
 // }
-
-// export default App;
-// // import { useState } from 'react'
-// // import reactLogo from './assets/react.svg'
-// // import viteLogo from './assets/vite.svg'
-// // import heroImg from './assets/hero.png'
-// // import './App.css'
-
-// // function App() {
-// //   const [count, setCount] = useState(0)
-
-// //   return (
-// //     <>
-// //       <section id="center">
-// //         <div className="hero">
-// //           <img src={heroImg} className="base" width="170" height="179" alt="" />
-// //           <img src={reactLogo} className="framework" alt="React logo" />
-// //           <img src={viteLogo} className="vite" alt="Vite logo" />
-// //         </div>
-// //         <div>
-// //           <h1>Maro's wedding</h1>
-// //           <p>
-// //             Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-// //           </p>
-// //         </div>
-// //         <button
-// //           className="counter"
-// //           onClick={() => setCount((count) => count + 1)}
-// //         >
-// //           Count is {count}
-// //         </button>
-// //       </section>
-
-// //       <div className="ticks"></div>
-
-// //       <section id="next-steps">
-// //         <div id="docs">
-// //           <svg className="icon" role="presentation" aria-hidden="true">
-// //             <use href="/icons.svg#documentation-icon"></use>
-// //           </svg>
-// //           <h2>Documentation</h2>
-// //           <p>Your questions, answered</p>
-// //           <ul>
-// //             <li>
-// //               <a href="https://vite.dev/" target="_blank">
-// //                 <img className="logo" src={viteLogo} alt="" />
-// //                 Explore Vite
-// //               </a>
-// //             </li>
-// //             <li>
-// //               <a href="https://react.dev/" target="_blank">
-// //                 <img className="button-icon" src={reactLogo} alt="" />
-// //                 Learn more
-// //               </a>
-// //             </li>
-// //           </ul>
-// //         </div>
-// //         <div id="social">
-// //           <svg className="icon" role="presentation" aria-hidden="true">
-// //             <use href="/icons.svg#social-icon"></use>
-// //           </svg>
-// //           <h2>Connect with us</h2>
-// //           <p>Join the Vite community</p>
-// //           <ul>
-// //             <li>
-// //               <a href="https://github.com/vitejs/vite" target="_blank">
-// //                 <svg
-// //                   className="button-icon"
-// //                   role="presentation"
-// //                   aria-hidden="true"
-// //                 >
-// //                   <use href="/icons.svg#github-icon"></use>
-// //                 </svg>
-// //                 GitHub
-// //               </a>
-// //             </li>
-// //             <li>
-// //               <a href="https://chat.vite.dev/" target="_blank">
-// //                 <svg
-// //                   className="button-icon"
-// //                   role="presentation"
-// //                   aria-hidden="true"
-// //                 >
-// //                   <use href="/icons.svg#discord-icon"></use>
-// //                 </svg>
-// //                 Discord
-// //               </a>
-// //             </li>
-// //             <li>
-// //               <a href="https://x.com/vite_js" target="_blank">
-// //                 <svg
-// //                   className="button-icon"
-// //                   role="presentation"
-// //                   aria-hidden="true"
-// //                 >
-// //                   <use href="/icons.svg#x-icon"></use>
-// //                 </svg>
-// //                 X.com
-// //               </a>
-// //             </li>
-// //             <li>
-// //               <a href="https://bsky.app/profile/vite.dev" target="_blank">
-// //                 <svg
-// //                   className="button-icon"
-// //                   role="presentation"
-// //                   aria-hidden="true"
-// //                 >
-// //                   <use href="/icons.svg#bluesky-icon"></use>
-// //                 </svg>
-// //                 Bluesky
-// //               </a>
-// //             </li>
-// //           </ul>
-// //         </div>
-// //       </section>
-
-// //       <div className="ticks"></div>
-// //       <section id="spacer"></section>
-// //     </>
-// //   )
-// // }
-
-// // export default App
-

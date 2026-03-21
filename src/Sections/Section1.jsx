@@ -4,7 +4,7 @@ import useCountdown from "../Hooks/useCountdown";
 import "../Styles/Section1.css";
 
 export default function Section1() {
-  const timeLeft = useCountdown(invitationConfig.weddingDate);
+  //const timeLeft = useCountdown(invitationConfig.weddingDate);
 
   return (
     <SectionWrapper>
@@ -14,7 +14,7 @@ export default function Section1() {
 
         <p className="quote">{invitationConfig.quote}</p>
 
-        {timeLeft && (
+        {/* {timeLeft && (
   <div className="countdown">
     <div className="time-box">
       <span className="number">{timeLeft.days}</span>
@@ -36,11 +36,11 @@ export default function Section1() {
       <span className="label">ثانية</span>
     </div>
   </div>
-)}
+)} */}
 
         <div className="swipe-hint">
            <img src={"/swipe-right.png"}  lt="swipe right" className="swipe-icon" /> 
-           <span>اسحب لليمين  </span>
+           <div><span>اسحب لليمين  </span></div>
         </div>
 
       </div>
