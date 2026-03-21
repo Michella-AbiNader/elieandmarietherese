@@ -14,7 +14,7 @@
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
-  --wedding-font:"Luxurious Script",Sans-serif;
+  --wedding-font:"Amiri",Sans-serif;
   --rose-color:#f8c8dc
 
   font: 18px/145% var(--wedding-font);
@@ -66,6 +66,7 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 h1,

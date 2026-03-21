@@ -1,0 +1,66 @@
+.content3 {
+    position: relative;
+    z-index: 2;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* centered vertically */
+    align-items: center;
+
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+/* Each block (ceremony / venue) */
+.block {
+    margin-bottom: 50px;
+}
+
+/* Titles */
+.title {
+    font-size: 3rem;
+    color: white;
+    /* rose */
+    margin-bottom: 15px;
+    font-family: 'Amiri';
+}
+
+/* Details */
+.details {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+        font-family: 'Amiri';
+}
+
+/* Time */
+.time {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+        font-family: 'Amiri';
+}
+
+/* Button */
+.location-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #f8c8dc;
+    border-radius: 10px;
+
+    color: #DEA193;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+        font-family: 'Amiri';
+}
+
+.church-img{
+    width:45px;
+    height:45px;
+}

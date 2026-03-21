@@ -4,6 +4,7 @@ import MusicButton from "./Layout/MusicButton";
 import Envelope from "./Components/Envelope";
 import SwipeContainer from "./Components/SwipeContainer";
 import Section2 from "./Sections/Section2";
+import Section3 from "./Sections/Section3";
 
 function App() {
   const audioRef = useRef(null);
@@ -14,6 +15,8 @@ function App() {
   const sections = [
   <Section1 key="1" />,
   <Section2 key="2" />,
+    <Section3 key="3" />,
+
 ];
 
   // Start music after user opens envelope
@@ -35,97 +38,42 @@ function App() {
 
     setIsPlaying(!isPlaying);
   };
+return (
+  <div
+    style={{
+      position: "relative",
+      width: "100vw",
+      height: "100vh",
+      overflow: "hidden",
+      backgroundImage: `url(/CoupleBGImage.jpeg)`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
+    {/*FIXED OVERLAY (ALWAYS THERE) */}
+    <div className="overlay" />
 
-  return (
-    <div style={{ position: "relative" }}>
-      {/* 🎶 Audio */}
-      <audio ref={audioRef} src="/InvitationMusic.mp3" loop />
-
-      {/* 🎉 ALWAYS visible in background */}
+    {/*SWIPE CONTENT */}
+    <div style={{ position: "relative", zIndex: 2 }}>
       <SwipeContainer sections={sections} isEnabled={isOpened} />
-
-      <MusicButton
-        isPlaying={isPlaying}
-        toggleMusic={toggleMusic}
-      />
-
-      {/* 📩 Overlay envelope */}
-      {!isOpened && (
-        <Envelope onOpen={() => setIsOpened(true)} />
-      )}
     </div>
-  );
+
+    {/* Music button */}
+    <MusicButton
+      isPlaying={isPlaying}
+      toggleMusic={toggleMusic}
+    />
+
+    {/* 📩 Envelope */}
+    {!isOpened && (
+      <Envelope onOpen={() => setIsOpened(true)} />
+    )}
+  </div>
+);
 }
 
 export default App;
-// import { useRef, useState, useEffect } from "react";
-// import Section1 from "./Sections/Section1";
-// import MusicButton from "./Layout/MusicButton";
 
-// function App() {
-//   const audioRef = useRef(null);
-//   const [isPlaying, setIsPlaying] = useState(false);
-
-//   // Try to autoplay (may be blocked until user interaction)
-//   useEffect(() => {
-//     const playAudio = async () => {
-//       try {
-//         await audioRef.current.play();
-//         setIsPlaying(true);
-//       } catch {
-//         setIsPlaying(false);
-//       }
-//     };
-
-//     playAudio();
-//   }, []);
-
-//   const toggleMusic = () => {
-//     if (!audioRef.current) return;
-
-//     if (isPlaying) {
-//       audioRef.current.pause();
-//     } else {
-//       audioRef.current.play();
-//     }
-
-//     setIsPlaying(!isPlaying);
-//   };
-
-//   return (
-//     <>
-//       {/* Global Audio */}
-//       <audio
-//         ref={audioRef}
-//         src="/InvitationMusic.mp3"
-//         loop
-//       />
-
-//       <Section1 />
-
-//       <MusicButton
-//         isPlaying={isPlaying}
-//         toggleMusic={toggleMusic}
-//       />
-//     </>
-//   );
-// }
-
-// export default App;
-// import "./App.css";
-// import Section1 from "./Sections/Section1";
-// import MusicButton from "./Layout/MusicButton";
-
-// function App() {
-//   return (
-//     <>
-//       <Section1 />
-//       <MusicButton />
-//     </>
-//   );
-// }
-
-// export default App;
 // import { db } from "./firebase";
 // import { collection, addDoc } from "firebase/firestore";
 

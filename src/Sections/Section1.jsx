@@ -8,7 +8,7 @@ export default function Section1() {
 
   return (
     <SectionWrapper>
-      <div className="content">
+      <div className="content animate">
 
         <h1 className="names">{invitationConfig.coupleNames}</h1>
 

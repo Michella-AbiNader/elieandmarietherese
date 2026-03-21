@@ -5,7 +5,7 @@ import "../Styles/Section2.css";
 export default function Section2() {
   return (
     <SectionWrapper>
-      <div className="content">
+      <div className="content animate">
 
         <h2 className="title">
           دعوة لحضور حفل زفاف
@@ -16,7 +16,7 @@ export default function Section2() {
         </p>
 
         <p className="date">
-          {invitationConfig.weddingDate}
+          {invitationConfig.weddingDate_String}
         </p>
 
       </div>

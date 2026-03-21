@@ -10,8 +10,19 @@ export const invitationConfig = {
   buttonColor: "#d32f2f",
   quote: "اِثْنَانِ خَيْرٌ مِنْ وَاحِدٍ، لأَنَّ لَهُمَا أُجْرَةً لِتَعَبِهِمَا صَالِحَةً. لأَنَّهُ إِنْ وَقَعَ أَحَدُهُمَا يُقِيمُهُ رَفِيقُهُ. وَوَيْلٌ لِمَنْ هُوَ وَحْدَهُ إِنْ وَقَعَ، إِذْ لَيْسَ ثَانٍ لِيُقِيمَهُ",//"الحب هو أن تجد روحك في شخص آخر",
   invitationText: "اِثْنَانِ خَيْرٌ مِنْ وَاحِدٍ، لأَنَّ لَهُمَا أُجْرَةً لِتَعَبِهِمَا صَالِحَةً. لأَنَّهُ إِنْ وَقَعَ أَحَدُهُمَا يُقِيمُهُ رَفِيقُهُ. وَوَيْلٌ لِمَنْ هُوَ وَحْدَهُ إِنْ وَقَعَ، إِذْ لَيْسَ ثَانٍ لِيُقِيمَهُ",
-  weddingDate: "2026-09-20T18:00:00",
-  images: {
-    backgroundImage: "/public/icons.svg",
+  weddingDate: "2026-09-12T18:00:00",
+  weddingDate_String: "Saturday, Septembre 12th, 2026",
+  ceremony: {
+    title: "مراسم الإكليل",
+    name: "كنيسة مار يعقوب السروجي",
+    city: "Sabitiyeh",
+    time: "الساعة 6:00 مساءً",
+    mapLink: "https://maps.app.goo.gl/uAWoqb1R25aY2c4BA?g_st=aw",
+  },
+  venue: {
+    title: "حفل الاستقبال",
+    name: "نادي الرتباء",
+    city: "الفياضية",
+    mapLink: "https://maps.app.goo.gl/sMLiyyquqrFMoAYt6?g_st=aw",
   },
 };
