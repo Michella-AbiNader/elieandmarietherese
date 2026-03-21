@@ -25,7 +25,7 @@
 }
 .countdown {
   font-size: 1.2rem;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -67,7 +67,7 @@
 .top-title {
   font-size: 2.2rem;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: center;
 }
 
@@ -90,7 +90,7 @@
 /* Centered sentence under parents */
 .sentence1 {
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: center;
   max-width: 80%;
 }
@@ -98,7 +98,7 @@
 /* Small image */
 .small-image {
   width: 60px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 /* Couple names with wedding ring */
@@ -108,7 +108,7 @@
   gap: 15px;
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .couple-names .ring {
@@ -119,7 +119,7 @@
 /* Final centered sentence */
 .sentence2 {
   font-size: 1rem;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 /* Swipe hint */
