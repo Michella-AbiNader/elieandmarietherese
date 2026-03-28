@@ -3,13 +3,15 @@ export const invitationConfig = {
   section1: {
     title: "دعوة زفاف", // top title
     parents: {
-      bride: "السيد سليمان رعد و زوجته لوريت رعد ",
-      groom: "السيد جهاد سلمان و زوجته سمية آدم ",
+      brideFather: "السيد سليمان رعد",
+      brideMother: "و زوجته لوريت رعد",
+      groomFather: "السيد جهاد سلمان",
+      groomMother: "و زوجته سمية آدم",
     },
     sentence1: "يتشرفون بدعوتكم لحضور حفل إكليل إبنهما", // centered sentence under parents
     groomName: "إلياس", 
     brideName: "ماري تيريز",
-    sentence2: "... و ذلك مع دقات أجراس الفرح في تمام الساعة", // final centered sentence
+    sentence2: "و ذلك مع دقات أجراس الفرح في تمام الساعة 6 من مساء يوم", // final centered sentence
   },
   coupleNames: "إيلي و ماري تيريز",
   date: "12 اب 2026",

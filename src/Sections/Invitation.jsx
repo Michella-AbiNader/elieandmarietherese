@@ -12,12 +12,28 @@ export default function Invitation() {
         {/* Top Title */}
         {/* <h1 className="top-title">{section.title}</h1> */}
 
-        {/* Parents names */}
+        {/* Parents names
         <div className="parents-names">
-          <span className="groom-parent">{section.parents.groom}</span>
-          <span className="bride-parent">{section.parents.bride}</span>
-        </div>
+          <span className="groom-parent">{section.parents.groomFather}</span>
+          <span className="groom-parent">{section.parents.groomMother}</span>
+          <span className="bride-parent">{section.parents.brideFather}</span>
+          <span className="bride-parent">{section.parents.brideMother}</span>
+        </div> */}
+        <div className="parents-names">
 
+          {/* Groom side */}
+          <div className="parents-column">
+            <span>{section.parents.groomFather}</span>
+            <span>{section.parents.groomMother}</span>
+          </div>
+
+          {/* Bride side */}
+          <div className="parents-column">
+            <span>{section.parents.brideFather}</span>
+            <span>{section.parents.brideMother}</span>
+          </div>
+
+        </div>
         {/* Centered sentence */}
         <p className="sentence1">{section.sentence1}</p>
 
@@ -34,7 +50,7 @@ export default function Invitation() {
         </div>
 
         {/* Final centered sentence */}
-        <p className="sentence2">{section.sentence2}</p>
+        <p className="sentence2">{section.sentence2} {invitationConfig.weddingDate_String}</p>
 
         {/* Swipe hint */}
         <div className="swipe-hint">

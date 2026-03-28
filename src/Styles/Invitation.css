@@ -13,7 +13,7 @@
 
     text-align: center;
     color: white;
-    padding: 20px;
+    padding: 10px;
     font-family: 'Amiri';
 }
 
@@ -72,15 +72,15 @@
 }
 
 /* Parents names next to each other */
-.parents-names {
+/* .parents-names {
   display: flex;
   justify-content: center;
   width: 100%;
   gap: 50px;
-  /* space between parents */
+  /* space between parents *
   margin-bottom: 15px;
   font-size: 1.6rem;
-}
+} */
 
 /* Individual parent styling */
 /* .parents-names span {
@@ -102,19 +102,19 @@
 }
 
 /* Couple names with wedding ring */
-.couple-names {
+/* .couple-names {
   display: flex;
   align-items: center;
   gap: 15px;
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 15px;
-}
-
+} */
+/* 
 .couple-names .ring {
   width: 40px;
   height: 40px;
-}
+} */
 
 /* Final centered sentence */
 .sentence2 {
@@ -132,4 +132,54 @@
 .swipe-hint .swipe-icon {
   width: 40px;
   margin-bottom: 5px;
+}
+.parents-names {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+/* Each side (groom / bride) */
+.parents-column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Prevent line breaks */
+.parents-column span {
+  white-space: nowrap;
+  font-size: 1.4rem;
+}
+
+.couple-names {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  /* 🔥 magic */
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Groom (right side in Arabic) */
+/* .couple-names .groom {
+  /* text-align: right; *
+} */
+
+/* Bride (left side) */
+/* .couple-names .bride {
+  /* text-align: left; *
+} */
+
+/* Ring stays perfectly centered */
+.couple-names .ring {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
 }

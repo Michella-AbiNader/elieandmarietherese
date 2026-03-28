@@ -1,0 +1,93 @@
+.dashboard {
+    padding: 30px;
+    font-family: sans-serif;
+    background: #120654;
+    color: white;
+    min-height: 100vh;
+}
+
+.dashboard-title {
+    text-align: center;
+    /* margin-bottom: 30px; */
+}
+
+/* Stats cards */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    /* padding: 20px; */
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #aaa;
+}
+
+.card p {
+    font-size: 24px;
+    color: white;
+}
+
+/* 🔹 Controls */
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.controls input,
+.controls select {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+}
+
+.controls button {
+    padding: 8px 12px;
+    background: #f8c8dc;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* 🔹 Table */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid white;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid white;
+}
+
+/* Status colors */
+.yes {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.no {
+    color: #f44336;
+    font-weight: bold;
+}
