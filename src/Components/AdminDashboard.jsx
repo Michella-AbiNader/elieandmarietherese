@@ -18,7 +18,7 @@ export default function AdminDashboard() {
         id: doc.id,
         ...doc.data()
       }));
-
+        console.log(data)
       setRsvps(data);
       setFiltered(data);
     };
@@ -51,8 +51,14 @@ export default function AdminDashboard() {
 
   const totalInvites = filtered.length;
 
-  const attendingCount = filtered.filter(r => r.attending === "yes").length;
-  const notAttendingCount = filtered.filter(r => r.attending === "no").length;
+ // const attendingCount = filtered.filter(r => r.attending === "yes").length;
+ const attendingCount = filtered
+  .filter(r => r.attending === "yes")
+  .reduce((sum, r) => sum + (Array.isArray(r.names) ? r.names.length : 1), 0);
+  //const notAttendingCount = filtered.filter(r => r.attending === "no").length;
+  const notAttendingCount = filtered
+  .filter(r => r.attending === "no")
+  .reduce((sum, r) => sum + (Array.isArray(r.names) ? r.names.length : 1), 0);
 
   const exportToExcel = () => {
     const data = filtered.map(r => ({
@@ -138,6 +144,7 @@ export default function AdminDashboard() {
               <th>Names</th>
               <th>Status</th>
               <th>Guests</th>
+              <th>Date</th>
             </tr>
           </thead>
 
@@ -160,6 +167,11 @@ export default function AdminDashboard() {
                   {Array.isArray(rsvp.names)
                     ? rsvp.names.length
                     : 1}
+                </td>
+                  <td>
+                    {rsvp.createdAt
+                    ? rsvp.createdAt.toDate().toLocaleString()
+                    : "-"}
                 </td>
               </tr>
             ))}
