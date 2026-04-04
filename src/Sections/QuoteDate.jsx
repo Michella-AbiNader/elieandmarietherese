@@ -15,9 +15,9 @@ export default function QuoteDate() {
          {invitationConfig.quote}
         </p>
 
-        <p className="date">
+        {/* <p className="date">
           {invitationConfig.weddingDate_String}
-        </p>
+        </p> */}
 
       </div>
     </SectionWrapper>

@@ -70,7 +70,7 @@ export default function RSVP() {
     <SectionWrapper>
       <div className="content">
 
-        <h2 className="title">{rsvp.title}</h2>
+        <h2 className="title-rsvp">{rsvp.title}</h2>
 
         <p className="deadline">{rsvp.deadline}</p>
 

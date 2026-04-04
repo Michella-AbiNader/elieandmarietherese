@@ -114,3 +114,8 @@
     color: #f8c8dc;
     cursor: pointer;
 }
+.title-rsvp{
+    margin:0;
+    font-size: 3rem;
+    color: white;
+}
