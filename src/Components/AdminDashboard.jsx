@@ -113,7 +113,7 @@ export default function AdminDashboard() {
 
       </div>
 
-      {/* 🔹 CONTROLS */}
+      {/* CONTROLS */}
       <div className="controls">
 
         <input

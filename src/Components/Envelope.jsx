@@ -25,11 +25,19 @@ export default function Envelope({ onOpen }) {
         color: invitationConfig.textColor,
       }}
     >
-      <img
-        src="/closed-sealed-env.png" // FIX: remove /public
+      {/* <img
+        src="/closed-sealed-env.png" 
         alt="Envelope"
         className="envelope-image"
-      />
+      /> */}
+<picture style={{width:'100%',height:'100%'}}>
+  <source media="(max-width: 768px)" srcSet="/closed-sealed-env-phone.jpg" />
+  <img
+    src="/closed-sealed-env.jpg"
+    alt="Envelope"
+    className="envelope-image"
+  />
+</picture>
 
       {!isOpened && (
         <p className="click-text">
