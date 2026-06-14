@@ -4,12 +4,23 @@ import "../Styles/RSVP.css";
 import { useState } from "react";
 import { db } from "../firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export default function RSVP() {
+  const [searchParams] = useSearchParams();
+  const guestsParam = parseInt(searchParams.get("guests"), 10);
+  const guestsAllowed =!isNaN(guestsParam) && guestsParam > 0 ? guestsParam : null;
+
   const { rsvp } = invitationConfig;
 
   // Multiple names
   const [names, setNames] = useState([""]);
+  useEffect(() => {
+    if (guestsAllowed) {
+      setNames(Array(guestsAllowed).fill(""));
+    }
+  }, []);
   const [attending, setAttending] = useState("");
 
   // Update name
@@ -21,6 +32,10 @@ export default function RSVP() {
 
   // Add guest
   const addGuest = () => {
+    if (guestsAllowed && names.length >= guestsAllowed) {
+      return;
+    }
+
     setNames([...names, ""]);
   };
 
@@ -57,7 +72,11 @@ export default function RSVP() {
       alert("تم إرسال الرد بنجاح ❤️");
 
       // Reset form
-      setNames([""]);
+      setNames(
+        guestsAllowed
+          ? Array(guestsAllowed).fill("")
+          : [""]
+      );
       setAttending("");
 
     } catch (error) {
@@ -74,6 +93,11 @@ export default function RSVP() {
 
         <p className="deadline">{rsvp.deadline}</p>
 
+        {guestsAllowed && (
+        <p className="guests-count">
+          {rsvp.numebrOfGuests}: {guestsAllowed}
+        </p>
+      )}
         <form className="rsvp-form" onSubmit={handleSubmit}>
 
           {/* Names list */}
@@ -143,8 +167,9 @@ export default function RSVP() {
         type="button"
         className="add-guest-btn"
         onClick={addGuest}
+        disabled={guestsAllowed && names.length >= guestsAllowed}
       >
-        + إضافة مرافق
+            + إضافة مرافق
       </button>
 
       {/* Submit */}

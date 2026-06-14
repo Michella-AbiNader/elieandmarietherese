@@ -49,5 +49,6 @@ export const invitationConfig = {
     attendingYes: "سأحضر",
     attendingNo: "لن أتمكن من الحضور",
     submitText: "إرسال",
+    numebrOfGuests: "عدد الضيوف",
   },
 };
