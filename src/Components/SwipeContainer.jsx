@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function SwipeContainer({ sections, isEnabled = true }) {
   const [[page, direction], setPage] = useState([0, 0]);
 
+  // 🔥 this freezes the visible slide during animation
+  const currentSection = sections[page];
+
   const paginate = (newDirection) => {
     setPage(([prev]) => {
       let next = prev + newDirection;
@@ -16,19 +19,20 @@ export default function SwipeContainer({ sections, isEnabled = true }) {
   };
 
   const variants = {
-  enter: (direction) => ({
-    x: direction > 0 ? "-100%" : "100%", // ✅ flipped
-    opacity: 0,
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction) => ({
-    x: direction > 0 ? "100%" : "-100%", // ✅ flipped
-    opacity: 0,
-  }),
-};
+    enter: (direction) => ({
+      x: direction > 0 ? "-100%" : "100%",
+      opacity: 1,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction) => ({
+      x: direction > 0 ? "100%" : "-100%",
+      opacity: 1,
+    }),
+  };
+
   return (
     <div
       style={{
@@ -36,6 +40,7 @@ export default function SwipeContainer({ sections, isEnabled = true }) {
         width: "100vw",
         height: "100vh",
         position: "relative",
+        backgroundColor: "#000", // 🔥 prevents grey flash
       }}
     >
       <AnimatePresence initial={false} custom={direction}>
@@ -47,49 +52,45 @@ export default function SwipeContainer({ sections, isEnabled = true }) {
           animate="center"
           exit="exit"
           transition={{
-            x: { type: "tween", duration: 0.6 },
-            opacity: { duration: 0.4 },
+            x: { type: "tween", duration: 0.6, ease: "easeInOut" },
+            opacity: { duration: 0 },
           }}
           drag={isEnabled ? "x" : false}
           dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0} // 🚫 no stretch
+          dragElastic={0}
           onDragEnd={(e, { offset, velocity }) => {
             if (!isEnabled) return;
 
             const swipe = offset.x + velocity.x * 50;
 
-            if (swipe > 100) {
-              // 👉 RIGHT → NEXT (RTL)
-              paginate(1);
-            } else if (swipe < -100) {
-              // 👉 LEFT → PREVIOUS
-              paginate(-1);
-            }
+            if (swipe > 100) paginate(1);
+            else if (swipe < -100) paginate(-1);
           }}
           style={{
             width: "100%",
             height: "100%",
-            position: "absolute", // 🔥 prevents white gaps
+            position: "absolute",
             top: 0,
             left: 0,
           }}
         >
-          {/* <div className="section-wrapper">
-  {sections[page]}
-</div> */}
-<div
-  className="section-wrapper"
-  style={{
-    width: "100%",
-    height: "100%",
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)), url(${sections[page].background})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
->
-  {sections[page].component}
-</div>
+          {/* 🔥 BACKGROUND LAYER INSIDE MOTION */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.20)), url(${sections[page].background})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              zIndex: 0,
+            }}
+          />
+
+          {/* CONTENT */}
+          <div style={{ position: "relative", zIndex: 1, width: "100%", height: "100%" }}>
+            {currentSection.component}
+          </div>
         </motion.div>
       </AnimatePresence>
     </div>
