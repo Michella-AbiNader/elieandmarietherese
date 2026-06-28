@@ -63,7 +63,7 @@ export default function RSVP() {
     }
 
     try {
-      await addDoc(collection(db, "rsvpsTest"), {
+      await addDoc(collection(db, "rsvpsWedding"), {
         names: filteredNames,
         attending: attending,
         createdAt: serverTimestamp(),

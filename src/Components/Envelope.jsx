@@ -31,9 +31,9 @@ export default function Envelope({ onOpen }) {
         className="envelope-image"
       /> */}
 <picture style={{width:'100%',height:'100%'}}>
-  <source media="(max-width: 768px)" srcSet="/closed-sealed-env-phone.jpg" />
+  <source media="(max-width: 768px)" srcSet="/closed-sealed-env-phone.png" />
   <img
-    src="/closed-sealed-env.jpg"
+    src="/closed-sealed-env.png"
     alt="Envelope"
     className="envelope-image"
   />

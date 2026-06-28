@@ -13,7 +13,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const snapshot = await getDocs(collection(db, "rsvpsTest"));
+      const snapshot = await getDocs(collection(db, "rsvpsWedding"));
       const data = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()

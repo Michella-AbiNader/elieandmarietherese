@@ -29,15 +29,15 @@ const sections = [
   },
   {
     component: <QuoteDate />,
-    background: "/CoupleImage4.jpeg",
+    background: "/CoupleImage5.jpeg",
   },
   {
     component: <WeddingVenue />,
-    background: "/CoupleImage2.jpeg",
+    background: "/CoupleImage6.jpeg",
   },
   {
     component: <GiftRegistry />,
-    background: "/CoupleImage4.jpeg",
+    background: "/CoupleImage7.jpeg",
   },
   {
     component: <RSVP />,

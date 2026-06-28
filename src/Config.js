@@ -40,11 +40,11 @@ export const invitationConfig = {
     title: "قائمة الهدايا",
     description: "حبكم ووجودكم معنا هما كل ما نتمناه في يومنا الخاص. لمن يرغب، قائمة الهدايا متاحة.",
     accountLabel: "رقم حساب wish:",
-    accountNumber: "111111111-03",
+    accountNumber: "31245875-03",
   },
    rsvp: {
     title: "كونوا ضيوفنا",
-    deadline: "يرجى تأكيد حضوركم قبل: ...2  ",
+    deadline: "يرجى تأكيد حضوركم قبل: 20 أغسطس  ",
     namePlaceholder: "الاسم الكامل",
     attendingYes: "سأحضر",
     attendingNo: "لن أتمكن من الحضور",
