@@ -29,7 +29,6 @@ export default function SwipeContainer({ sections, isEnabled = true }) {
     opacity: 0,
   }),
 };
-
   return (
     <div
       style={{
@@ -75,8 +74,21 @@ export default function SwipeContainer({ sections, isEnabled = true }) {
             left: 0,
           }}
         >
-          <div className="section-wrapper">
+          {/* <div className="section-wrapper">
   {sections[page]}
+</div> */}
+<div
+  className="section-wrapper"
+  style={{
+    width: "100%",
+    height: "100%",
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)), url(${sections[page].background})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  {sections[page].component}
 </div>
         </motion.div>
       </AnimatePresence>

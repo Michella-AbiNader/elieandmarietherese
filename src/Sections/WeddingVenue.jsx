@@ -32,7 +32,7 @@ export default function WeddingVenue() {
 
         {/* Venue */}
         <div className="block">
-          <h2 className="title">{venue.title}</h2>
+          <h2 className="details">{venue.title}</h2>
 
           <p className="details">
             {venue.name} - {venue.city}

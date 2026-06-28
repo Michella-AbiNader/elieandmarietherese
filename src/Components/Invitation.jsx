@@ -14,13 +14,35 @@ function InvitationApp() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isOpened, setIsOpened] = useState(false);
 
-  const sections = [
-  <Invitation key="1" />,
-  <QuoteDate key="2" />,
-  <WeddingVenue key="3" />,
-  <GiftRegistry key="4" />,
-  <RSVP key="5" />,
+//   const sections = [
+//   <Invitation key="1" />,
+//   <QuoteDate key="2" />,
+//   <WeddingVenue key="3" />,
+//   <GiftRegistry key="4" />,
+//   <RSVP key="5" />,
 
+// ];
+const sections = [
+  {
+    component: <Invitation />,
+    background: "/CoupleImage3.jpeg",
+  },
+  {
+    component: <QuoteDate />,
+    background: "/CoupleImage4.jpeg",
+  },
+  {
+    component: <WeddingVenue />,
+    background: "/CoupleImage2.jpeg",
+  },
+  {
+    component: <GiftRegistry />,
+    background: "/CoupleImage4.jpeg",
+  },
+  {
+    component: <RSVP />,
+    background: "/CoupleImage1.jpeg",
+  },
 ];
 
   // Start music after user opens envelope
@@ -49,9 +71,9 @@ return (
       width: "100vw",
       height: "100vh",
       overflow: "hidden",
-      backgroundImage: `url(/CoupleBGImage.jpeg)`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
+      // backgroundImage: `url(/CoupleImage3.jpeg)`,
+      // backgroundSize: "cover",
+      // backgroundPosition: "center",
     }}
   >
     <audio
@@ -84,27 +106,3 @@ return (
 
 export default InvitationApp;
 
-// import { db } from "./firebase";
-// import { collection, addDoc } from "firebase/firestore";
-
-// function App() {
-//   const testWrite = async () => {
-//     try {
-//       await addDoc(collection(db, "test"), {
-//         message: "Hello from React!",
-//         createdAt: new Date()
-//       });
-//       alert("Data sent successfully!");
-//     } catch (error) {
-//       console.error(error);
-//       alert("Error sending data!");
-//     }
-//   };
-
-//   return (
-//     <div style={{ padding: 20 }}>
-//       <h1>Maro's Wedding 💍</h1>
-//       <button onClick={testWrite}>Test Firebase</button>
-//     </div>
-//   );
-// }
